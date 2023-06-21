@@ -1,20 +1,34 @@
 package com.hakkinent.model.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Seller implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
     private Date birthdate;
     private Double baseSalary;
 
+    @OneToOne
     private Department department;
 
     public Seller() {
+    }
+
+    public Seller(String name, String email, Date birthdate, Double baseSalary, Department department) {
+        this.name = name;
+        this.email = email;
+        this.birthdate = birthdate;
+        this.baseSalary = baseSalary;
+        this.department = department;
     }
 
     public Seller(Integer id, String name, String email, Date birthdate, Double baseSalary, Department department) {
