@@ -3,6 +3,7 @@ package com.hakkinent.model.dao.impl;
 import com.hakkinent.db.DbException;
 import com.hakkinent.model.dao.DepartmentDao;
 import com.hakkinent.model.entities.Department;
+import com.hakkinent.model.entities.Seller;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -40,7 +41,15 @@ public class DepartmentDaoJPA implements DepartmentDao {
 
     @Override
     public void deleteById(Integer id) {
-
+        try {
+            em.getTransaction().begin();
+            Department department = findById(id);
+            em.remove(department);
+            em.getTransaction().commit();
+        }catch (Exception e){
+            em.getTransaction().rollback();
+            throw new DbException(e.getMessage());
+        }
     }
 
     @Override
