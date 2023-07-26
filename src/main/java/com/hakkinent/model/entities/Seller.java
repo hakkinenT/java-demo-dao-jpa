@@ -18,6 +18,7 @@ public class Seller implements Serializable {
     private Double baseSalary;
 
     @OneToOne
+    @JoinColumn(name = "department_id", referencedColumnName = "id")
     private Department department;
 
     public Seller() {

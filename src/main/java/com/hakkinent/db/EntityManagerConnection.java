@@ -18,10 +18,9 @@ public class EntityManagerConnection {
     }
 
     public static void closeManagers(){
-        if(entityManager != null){
-            emf.close();
-            entityManager.close();
-        }
+        entityManager.close();
+        emf.close();
+
     }
 
 }
