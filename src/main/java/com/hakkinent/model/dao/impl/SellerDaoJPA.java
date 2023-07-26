@@ -6,12 +6,7 @@ import com.hakkinent.model.entities.Department;
 import com.hakkinent.model.entities.Seller;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class SellerDaoJPA implements SellerDao {

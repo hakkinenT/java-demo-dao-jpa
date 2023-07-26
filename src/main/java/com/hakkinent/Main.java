@@ -7,15 +7,13 @@ import com.hakkinent.model.entities.Department;
 import com.hakkinent.model.entities.Seller;
 
 import javax.persistence.*;
-import java.text.DateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("dao-jpa");
+
         Scanner sc = new Scanner(System.in);
 
         EntityManager em = EntityManagerConnection.createEntityManager();
