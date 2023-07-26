@@ -5,6 +5,7 @@ import com.hakkinent.model.dao.DepartmentDao;
 import com.hakkinent.model.entities.Department;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DepartmentDaoJPA implements DepartmentDao {
@@ -40,6 +41,12 @@ public class DepartmentDaoJPA implements DepartmentDao {
 
     @Override
     public List<Department> findAll() {
-        return null;
+        try{
+            TypedQuery<Department> query = em.createQuery("SELECT dep FROM Department dep", Department.class);
+            List<Department> departments = query.getResultList();
+            return departments;
+        }catch (Exception e){
+            throw new DbException(e.getMessage());
+        }
     }
 }

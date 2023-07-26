@@ -6,6 +6,7 @@ import com.hakkinent.model.dao.DepartmentDao;
 import com.hakkinent.model.entities.Department;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main2 {
@@ -19,6 +20,13 @@ public class Main2 {
         System.out.println("=== TEST 1: department findById =====");
         Department department = departmentDao.findById(1);
         System.out.println(department);
+
+        System.out.println("\n=== TEST 2: department findAll =====");
+        List<Department> list = departmentDao.findAll();
+        for(Department obj : list){
+            System.out.println(obj);
+        }
+
 
         sc.close();
         EntityManagerConnection.closeManagers();
