@@ -1,5 +1,6 @@
 package com.hakkinent.model.dao.impl;
 
+import com.hakkinent.db.DbException;
 import com.hakkinent.model.dao.DepartmentDao;
 import com.hakkinent.model.entities.Department;
 
@@ -29,7 +30,12 @@ public class DepartmentDaoJPA implements DepartmentDao {
 
     @Override
     public Department findById(Integer id) {
-        return null;
+        try {
+            Department department = em.find(Department.class, id);
+            return department;
+        }catch (Exception e){
+            throw new DbException(e.getMessage());
+        }
     }
 
     @Override
