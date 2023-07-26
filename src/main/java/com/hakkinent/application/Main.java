@@ -1,4 +1,4 @@
-package com.hakkinent;
+package com.hakkinent.application;
 
 import com.hakkinent.db.EntityManagerConnection;
 import com.hakkinent.model.dao.DaoFactory;
